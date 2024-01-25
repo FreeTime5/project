@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@model ThemeViewModel
+@{
+    ViewData["Title"] = "Theme";
+}
+
+<div class="card">
+    <div class="card-body">
+        <h3 class="card-title">Tags</h3>
+        @foreach (var collection in Model.Collections)
+        {
+            <p>@collection.Name</p>
+        }
+    </div>
+</div>

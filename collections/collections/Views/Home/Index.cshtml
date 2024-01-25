@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+@inject SignInManager<IdentityUser> SignInManager
+@model IndexViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="container-fluid">
+    <div class="card"">
+        <div class="card-body text-center">
+            <h3 class="card-title text-center">Tags</h3>
+            @foreach (var theme in Model.Themes)
+            {
+                <a asp-controller="Home" asp-action="Theme" asp-route-id="@theme.Id" class="btn btn-primary" >#@theme.Name</a>
+            }
+        </div>
+    </div>
+</div>
+
+
+<form asp-controller="Home" asp-action="CreateCollection" method="post">
+    <div class="mb-3">
+        <label for="collectionName" class="form-label">Collection name</label>
+        <input type="text" class="form-control" id="collectionName" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Enter a name for your collection.</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
